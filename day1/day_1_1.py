@@ -13,10 +13,7 @@ def get_sum(string):
 
 	for i in range(0, string_len):
 		current_index = i
-		next_index = i + 1
-
-		if next_index >= string_len:
-			next_index = 0
+		next_index = (i + 1) % string_len
 
 		if string[next_index] == string[current_index]:
 			count += int(string[current_index])
@@ -24,7 +21,7 @@ def get_sum(string):
 	return count
 
 def print_solution():
-	for line in get_lines('input.txt'):
+	for line in get_lines('day1/input.txt'):
 		print(get_sum(line.strip()))
 
 print_solution()
